@@ -1,0 +1,22 @@
+[
+  {"id": "C1", "claim": "In a vanilla RNN, the gradient from step t back to step k is a product of W_rec^T diag(sigma'(x)) terms, one per step.", "source": "S3", "kind": "definition", "verify": null},
+  {"id": "C2", "claim": "If the largest eigenvalue of W_rec is below 1 (with bounded activation derivative), long-term gradient components vanish; it must exceed 1 for gradients to explode.", "source": "S3", "kind": "finding", "verify": null},
+  {"id": "C3", "claim": "Gradient norm clipping is the proposed remedy for exploding gradients.", "source": "S3", "kind": "finding", "verify": null},
+  {"id": "C4", "claim": "The original LSTM's memory cell connects to itself with a fixed weight of 1.0 and a one-step delay; this is the constant error carousel (CEC).", "source": "S1", "kind": "definition", "verify": null},
+  {"id": "C5", "claim": "Multiplicative gate units learn to open and close access to the constant error flow.", "source": "S1", "kind": "definition", "verify": null},
+  {"id": "C6", "claim": "The 1997 LSTM bridged minimal time lags of more than 1000 discrete time steps, including on noisy, incompressible input sequences.", "source": "S1", "kind": "number", "verify": null},
+  {"id": "C7", "claim": "Compared with RTRL, BPTT, recurrent cascade correlation, Elman nets and neural sequence chunking, the 1997 LSTM had many more successful runs and learned much faster.", "source": "S1", "kind": "finding", "verify": null},
+  {"id": "C8", "claim": "The 1997 LSTM had no forget gate and truncated the gradient at certain architecture-specific points to keep error flow constant.", "source": "S1", "kind": "history", "verify": null},
+  {"id": "C9", "claim": "Without resets, an LSTM's cell state can grow indefinitely on continual input streams and eventually break the network.", "source": "S2", "kind": "finding", "verify": null},
+  {"id": "C10", "claim": "The forget gate (2000) lets a cell learn to reset itself; LSTM with forget gates solved continual benchmark versions that all other algorithms, including the original LSTM, failed.", "source": "S2", "kind": "finding", "verify": null},
+  {"id": "C11", "claim": "Across 5400 runs (about 15 CPU-years) of eight LSTM variants on speech, handwriting and music, no variant significantly improved on the standard LSTM.", "source": "S4", "kind": "number", "verify": null},
+  {"id": "C12", "claim": "The forget gate and the output activation function are the standard LSTM's most critical components.", "source": "S4", "kind": "finding", "verify": null},
+  {"id": "C13", "claim": "Standard LSTM uses sigmoid gate activations and usually tanh for block input and output activations.", "source": "S4", "kind": "definition", "verify": null},
+  {"id": "C14", "claim": "An architecture search over more than ten thousand RNN architectures found one that beat LSTM and GRU on some but not all tasks.", "source": "S5", "kind": "number", "verify": null},
+  {"id": "C15", "claim": "Initialising the forget-gate bias to 1 closes the gap between the LSTM and the GRU.", "source": "S5", "kind": "finding", "verify": "verify/decay.py"},
+  {"id": "C16", "claim": "In ablations, the input gate is important, the output gate is unimportant, and the forget gate is extremely significant on all problems except language modelling.", "source": "S5", "kind": "finding", "verify": null},
+  {"id": "C17", "claim": "A forget-gate-only LSTM outperformed the full three-gate LSTM on all five tasks tested.", "source": "S6", "kind": "finding", "verify": null},
+  {"id": "C18", "claim": "Along the direct cell path, d c_t / d c_{t-1} = diag(f_t), so the long-range factor is a product of forget-gate values with no weight matrix or tanh derivative.", "source": "derived", "kind": "definition", "verify": "verify/decay.py"},
+  {"id": "C19", "claim": "Worked example over 50 steps: RNN factor 0.54 gives 4.2e-14; LSTM with f=0.5 gives 8.9e-16; f=sigmoid(1)=0.73 gives 1.6e-7; f=0.99 gives 0.61; f=1 gives 1.0.", "source": "derived", "kind": "number", "verify": "verify/decay.py"},
+  {"id": "C20", "claim": "For m=128 inputs and n=256 hidden units, a vanilla RNN layer has 98,560 parameters and an LSTM layer 394,240 (4x); PyTorch reports 395,264 because it keeps two bias vectors per gate.", "source": "derived", "kind": "number", "verify": "verify/params.py"}
+]

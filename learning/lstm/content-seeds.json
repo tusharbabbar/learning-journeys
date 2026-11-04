@@ -1,0 +1,27 @@
+{
+  "one_line_delta": "LSTMs stopped rewriting memory every step and started editing it.",
+  "hooks": [
+    "An RNN's memory fades like a photocopy of a photocopy. LSTMs fixed it by not copying.",
+    "One number, set to 1, closed the gap between two famous AI architectures."
+  ],
+  "surprising_numbers": [
+    {"value": "4.2e-14 vs 0.61", "meaning": "gradient left after 50 steps: vanilla RNN vs LSTM that learned to hold", "claim": "C19", "verify": "verify/decay.py"},
+    {"value": "8.9e-16", "meaning": "an LSTM with forget bias 0 forgets faster than the RNN at the start of training", "claim": "C19", "verify": "verify/decay.py"},
+    {"value": "5400 runs, ~15 CPU-years", "meaning": "and no LSTM variant beat the standard one", "claim": "C11", "verify": null},
+    {"value": "> 1000 steps", "meaning": "time lags the 1997 LSTM could bridge", "claim": "C6", "verify": null}
+  ],
+  "misconceptions": [
+    {"belief": "LSTMs solve both vanishing and exploding gradients.", "correction": "They fix vanishing on the cell path; exploding gradients still need clipping.", "claim": "C3"},
+    {"belief": "LSTMs always remember longer than RNNs.", "correction": "With forget bias 0 they start out forgetting faster; the gain comes from a path the optimiser can push toward 1.", "claim": "C19"},
+    {"belief": "All three gates matter equally.", "correction": "The forget gate does most of the work; the output gate mattered little in ablations.", "claim": "C16"},
+    {"belief": "The forget gate was part of the original LSTM.", "correction": "It was added three years later, in 2000.", "claim": "C10"}
+  ],
+  "worked_examples": ["verify/decay.py", "verify/params.py"],
+  "visuals": [
+    "photocopier re-copying a page vs a page on a conveyor belt being edited with sticky notes",
+    "gradient bar shrinking over 50 steps for each row of the decay table",
+    "three valves on a pipe labelled forget, input, output"
+  ],
+  "analogy": "If a vanilla RNN is a photocopier re-copying the whole page every step, an LSTM is a page on a conveyor belt edited with sticky notes: it swaps a full rewrite through a matrix and squash for additive edits controlled by learned valves.",
+  "learner_questions": []
+}
