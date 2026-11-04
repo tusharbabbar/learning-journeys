@@ -1,23 +1,27 @@
 # Learning Journeys: instructions for agents
 
-This repo holds learning dossiers produced by the `topic-research` skill and synced by the `research-repo` skill. Content agents (reels, carousels, blogs, YouTube, LinkedIn, Substack) read from it.
+This repo holds topic folders written by the `learning-assistant` skill and synced by the `research-repo` skill. Content agents (reels, carousels, blogs, YouTube, LinkedIn, Substack) read from it.
 
-## Source of truth
-- `claims.json` and `sources.json` are the facts. `technical-doc.md` is a view built from them.
-- Every number used in content must come from a claim, and every computed number from a script in `verify/`. Never invent or round differently from the script output.
-- A claim with `"source": "derived"` is reasoning or arithmetic on sourced claims; it must have a `verify` script.
+## Files per topic (`learning/<topic>/`)
+- `resources.md`: every resource discovered, one row each, with a summary of 25 words or fewer. IDs (R1, R2…) are stable and never reused.
+- `design-review.md`: problem statement, background, solution comparison, approach. Cites resources by ID.
+- `concepts.md`: core concepts with status (`proposed`, `kept`, `dropped`), definition, related concepts, real-life link, study resources.
+- `maps/`: mental maps in Mermaid. `overview.md` is the 30k–10k ft map.
+- `notes/YYYY-MM-DD.md`: the learner's raw notes.
 
-## Editing rules
-- `sources.json`, `claims.json` and `journey.md` are append-only. Correct a wrong entry by editing it and logging the correction in `journey.md`; never delete history.
-- Cut sources stay in `sources.json` with `status: cut` and a `cut_reason`. Re-fetch them before searching the web again.
-- Store notes, numbers and links only. No PDFs, no full paper text; direct quotes under 15 words.
-- Keep `learning/index.md` in sync when a topic's status changes.
+## Ownership
+- The learner decides what is worth keeping. Only change a concept's status, add a real-life link, write notes, or make a new map when the learner asks.
+- Real-life links and notes are in the learner's words. Never add the assistant's own analogies there unless the learner says to store them.
+- Mark `dropped` concepts as dropped; don't delete them.
 
-## Content rules (Systems__first)
+## For content agents
+- Build from `kept` concepts, their real-life links, the notes and the maps. `proposed` concepts are not yet endorsed.
+- Only use topics marked `ready` in `learning/index.md`, unless asked otherwise.
 - Every piece stands alone for a new audience: no references to earlier topics, episodes or "last time".
-- Carousels show, not state: start from a worked example; maths comes last, as proof, checkable by the `verify/` scripts.
+- Carousels show, not state: start from a worked example; maths comes last, as proof.
 - Frame solutions as "why it won, and where it doesn't", never as universally best.
 
-## Before committing
-- All JSON parses, every claim's source exists in `sources.json` (or is `derived`), every `verify/` script runs.
-- Commit message: `research(<topic>): <summary>`. Never force-push.
+## Editing rules
+- Paraphrase; any direct quote under 15 words. Store summaries and links, never PDFs or full text.
+- Keep `learning/index.md` in sync when a topic's status changes.
+- Commit message: `learning(<topic>): <summary>`. Never force-push.

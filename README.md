@@ -1,28 +1,27 @@
 # Learning Journeys
 
-Research dossiers from learning technical topics, one folder per topic. Each dossier is the source material for Systems__first content: blogs, reels, YouTube videos, carousels, and LinkedIn and Substack posts.
+One folder per topic: the resources discovered, a design-review view of the topic, the concepts worth keeping, and the maps and raw notes made while learning it. This is the preparation material for Systems__first content: blogs, reels, YouTube videos, carousels, and LinkedIn and Substack posts.
 
 ## Layout
 
 ```
 learning/
-  index.md                 topic graph and status
+  index.md               topics and their status
   <topic>/
-    technical-doc.md       problem, prerequisites, glossary, lineage, comparison, mechanics, limits, references
-    sources.json           every source found, kept or cut, with the reason
-    claims.json            atomic facts, each tied to a source
-    journey.md             dated log of questions, confusions and corrections
-    content-seeds.json     hooks, numbers, misconceptions, visuals for content agents
-    verify/                scripts that print every number used in the doc
+    resources.md         every resource found, with its shortest summary
+    design-review.md     problem statement, background, solution comparison, approach
+    concepts.md          core concepts: definition, related concepts, real-life link, study material
+    maps/                mental maps (overview.md is the 30k-10k ft map)
+    notes/               raw notes, one file per day
 ```
 
-## Check the numbers
+## Who writes what
 
-```bash
-python3 learning/lstm/verify/decay.py
-python3 learning/lstm/verify/params.py
-```
-
-## Topics
-
-See [learning/index.md](learning/index.md).
+| File | Drafted by the assistant | Changed by you |
+|---|---|---|
+| resources.md | yes | add or remove on request |
+| maps/overview.md | yes | edit on request |
+| design-review.md | yes, at 10k ft | refine on request |
+| concepts.md | candidates marked `proposed` | you decide `kept` or `dropped`, and supply real-life links |
+| maps/* (other) | only when you ask | yes |
+| notes/ | never on its own | your raw notes |

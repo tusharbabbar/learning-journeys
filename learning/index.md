@@ -1,15 +1,14 @@
 # Learning index
 
-The topic graph. `topic-research` reads this first: `done` topics are the baseline and are never re-explained.
+| topic | status | folder |
+|---|---|---|
+| Feed-forward networks | known | — |
+| RNN | known | — |
+| RNN gradient problems (vanishing/exploding) | known | — |
+| LSTM | mapped | learning/lstm |
 
-| topic | status | prerequisites | folder |
-|---|---|---|---|
-| Feed-forward networks | done | — | — |
-| RNN | done | Feed-forward networks | — |
-| RNN gradient problems (vanishing/exploding) | done | RNN | — |
-| LSTM | in-progress | RNN gradient problems | learning/lstm |
-| Gradient clipping | to-learn | RNN gradient problems | — |
-| GRU | to-learn | LSTM | — |
-| Attention | to-learn | LSTM | — |
-
-Status values: `done`, `in-progress`, `to-learn`.
+Status values:
+- `known`: already understood; used as the baseline and never re-explained
+- `mapped`: resources discovered, 30k–10k ft overview and drafts written
+- `learning`: you are working through it and capturing concepts, links and notes
+- `ready`: you've marked it ready for content agents
