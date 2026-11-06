@@ -6,6 +6,7 @@
 | RNN | known | — |
 | RNN gradient problems (vanishing/exploding) | known | — |
 | LSTM | mapped | learning/lstm |
+| Attention → Transformer | mapped | learning/attention-transformer |
 
 Status values:
 - `known`: already understood; used as the baseline and never re-explained
